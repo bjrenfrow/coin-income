@@ -1,16 +1,8 @@
 const axios = require('axios');
 const csv = require('csvjson')
 const fs = require('fs');
-const moment = require('moment');
 const program = require('commander');
-const R = require('ramda');
 const { promisify } = require('util');
-
-const DATE_FORMAT = 'YYYY-MM-DD';
-
-const asyncReadFile = promisify(fs.readFile);
-const asyncWriteFile = promisify(fs.writeFile);
-
 const {
   coinmarketApi,
   filterMiningDataByYear,
@@ -19,6 +11,9 @@ const {
   getTimeframeFromYear,
   parseUSDHistory,
 } = require('./utils');
+
+const asyncReadFile = promisify(fs.readFile);
+const asyncWriteFile = promisify(fs.writeFile);
 
 console.log('-- starting --');
 
